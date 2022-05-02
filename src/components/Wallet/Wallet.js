@@ -85,7 +85,7 @@ function Wallet(props) {
       <div className="walletsection">
       {/* CARD MY WALLET*/}
       <div className="card shadow col-3">
-                <div className="card-header mb-3">
+                {/* <div className="card-header mb-3">
                     <h5>My Wallet <i className="fas fa-coins ml-2" /></h5>	
                 </div>
                 <div className="card-content">
@@ -165,13 +165,45 @@ function Wallet(props) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+                <Card sx={{ maxWidth: 345 }}>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              My Wallet
+            </Typography>
+            <List
+              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+            >
+                <ListItem
+                  disableGutters
+                  secondaryAction={
+                    <ListItemText primary={myWallet.name} />
+                  }
+                >
+                  <ListItemText primary={`Name`} />
+                </ListItem>
+                <ListItem
+                  disableGutters
+                  secondaryAction={
+                    <ListItemText primary={myWallet.coin} />
+                  }
+                >
+                  <ListItemText primary={`Balance`} />
+                </ListItem>
+            </List>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+        
+        </CardActions>
+      </Card>
             </div>
 
       
       {/* CARD CREATE WALLET*/}
       <div className="card shadow mt-3 col-3">
-        <h5
+        {/* <h5
           className="card-header btncreatewallet"
           style={{ cursor: "pointer" }}
         >
@@ -195,7 +227,32 @@ function Wallet(props) {
               Create
             </button>
           </form>
-        </div>
+        </div> */}
+        <Card sx={{ maxWidth: 345 }}>
+        <CardActionArea>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              Create Wallet
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+        <form
+            onSubmit={handleFormCreateSubmit}
+          >
+            <div>
+              <input
+                type="text"
+                placeholder="Name wallet..."
+                onChange={handleFormCreateChange}
+              />
+            </div>
+            <button className="btn btn-success btnformcreatewallet">
+              Create
+            </button>
+          </form>
+        </CardActions>
+      </Card>
       </div>
 
       {/* CARD CHANGE WALLET*/}
