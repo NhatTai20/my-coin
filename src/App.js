@@ -208,12 +208,7 @@ function App() {
           <div>
             <label>{miningReward}</label>
           </div> */}
-
           <div className="row">
-            <BlockChain 
-              blocks={block}
-              history={history} 
-            />
             <Wallet 
               myWallet={wallets[indexWalletActive]} 
               wallets={wallets}
@@ -223,6 +218,13 @@ function App() {
               sendCoin={sendCoinWallet}
               // walletHistory={walletHistory}
             />
+          </div>
+          <div className="row">
+            <BlockChain 
+              blocks={block}
+              history={history} 
+            />
+            
           </div>
         </div>
       </div>

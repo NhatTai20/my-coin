@@ -1,0 +1,9 @@
+.walletsection{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.col-3{
+    width: calc(100% / 3);
+}
