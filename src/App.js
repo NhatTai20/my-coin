@@ -35,7 +35,7 @@ function App() {
 
   // Block state
   const [block, setBlock] = useState([
-    { id: 0, data: 'First block created by system', prevHash: '0', hash: '0019123a23dd04e37bd41cb421c76ef6760477777c0034a16f329a7bf29468df', name: 'FIRST BLOCK' }
+    { id: 0, data: 'First block created by system', prevHash: '0', hash: '0019123a23dd04e37bd41cb421c76ef6760477777c0034a16f329a7bf29468df', name: 'GENESIS BLOCK' }
   ]);
 
   // Wallets state
@@ -174,7 +174,7 @@ function App() {
       // }
       setWallets(newWallet);
       clearDataForm('formsendcoin');
-      removeDiv('card-send-coin');    
+      //removeDiv('card-send-coin');    
     }
   }
 

@@ -43,14 +43,11 @@ function BlockChain(props) {
     }
 
     return (   
-        <div className="col-8">
+        <div style={{width: '100%'}}>
             {/* View Block chain */}
-            <div className={showHistory===false?"card shadow mb-3":"andi"}>
+            <div className="card shadow">
                 <div className="card-header-two">
-                    <span className="txtFirst">LATEST BLOCKS</span>
-                    <span className="txtSecond" onClick={handleClick}>
-                        {showHistory===false?"View History":"View Blockchain"}
-                    </span>
+                    <span className="txtFirst">BLOCKCHAIN</span>
                 </div>
                 
                 <div className={"card-body"}> 
@@ -59,12 +56,9 @@ function BlockChain(props) {
             </div>
 
             {/* View History transfer */}
-            <div className={showHistory===true?"card shadow mb-3":"andi"}>
+            <div className="card shadow">
                 <div className="card-header-two">
                     <span className="txtFirst">HISTORY</span>
-                    <span className="txtSecond" onClick={handleClick}>
-                        {showHistory===false?"View History":"View Blockchain"}
-                    </span>
                 </div>
                 {showHistoryFromEnd(history)}
             </div>

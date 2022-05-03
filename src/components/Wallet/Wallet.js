@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import './Wallet.scss'
+import "./Wallet.scss";
 function Wallet(props) {
   const {
     myWallet,
@@ -42,9 +41,6 @@ function Wallet(props) {
     const value = {
       newId: id,
     };
-    document
-      .getElementsByClassName("cardchangewallet")[0]
-      .classList.remove("xuathien");
     getIdChangeWallet(value);
   }
 
@@ -67,25 +63,13 @@ function Wallet(props) {
     setIdReciever(0);
   }
 
-  // function showHistoryFromEnd (history) {
-  //     var elements = [];
-  //     if (history.length === 0){
-  //         return <p>There is no transaction with this wallet.</p>;
-  //     }
-  //     for(let i = history.length - 1; i >= 0; i--){
-  //         elements.push(
-  //             <p>{history[i]}</p>
-  //         );
-  //     }
-  //     return elements;
-  // }
 
   return (
-      <>
+    <>
       <div className="walletsection">
-      {/* CARD MY WALLET*/}
-      <div className="card shadow col-3">
-                {/* <div className="card-header mb-3">
+        {/* CARD MY WALLET*/}
+        <div className="col-3">
+          {/* <div className="card-header mb-3">
                     <h5>My Wallet <i className="fas fa-coins ml-2" /></h5>	
                 </div>
                 <div className="card-content">
@@ -166,44 +150,43 @@ function Wallet(props) {
                         </div>
                     </div>
                 </div> */}
-                <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              My Wallet
-            </Typography>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  My Wallet
+                </Typography>
+                
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
             <List
-              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-            >
-                <ListItem
-                  disableGutters
-                  secondaryAction={
-                    <ListItemText primary={myWallet.name} />
-                  }
+                  sx={{
+                    width: "100%",
+                    maxWidth: 360,
+                    bgcolor: "background.paper",
+                  }}
                 >
-                  <ListItemText primary={`Name`} />
-                </ListItem>
-                <ListItem
-                  disableGutters
-                  secondaryAction={
-                    <ListItemText primary={myWallet.coin} />
-                  }
-                >
-                  <ListItemText primary={`Balance`} />
-                </ListItem>
-            </List>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-        
-        </CardActions>
-      </Card>
-            </div>
+                  <ListItem
+                    disableGutters
+                    secondaryAction={<ListItemText primary={myWallet.name} />}
+                  >
+                    <ListItemText primary={`Name`} />
+                  </ListItem>
+                  <ListItem
+                    disableGutters
+                    secondaryAction={<ListItemText primary={myWallet.coin} />}
+                  >
+                    <ListItemText primary={`Balance`} />
+                  </ListItem>
+                </List>
+            </CardActions>
+          </Card>
+        </div>
 
-      
-      {/* CARD CREATE WALLET*/}
-      <div className="card shadow mt-3 col-3">
-        {/* <h5
+        {/* CARD CREATE WALLET*/}
+        <div className="col-3">
+          {/* <h5
           className="card-header btncreatewallet"
           style={{ cursor: "pointer" }}
         >
@@ -228,35 +211,33 @@ function Wallet(props) {
             </button>
           </form>
         </div> */}
-        <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Create Wallet
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-        <form
-            onSubmit={handleFormCreateSubmit}
-          >
-            <div>
-              <input
-                type="text"
-                placeholder="Name wallet..."
-                onChange={handleFormCreateChange}
-              />
-            </div>
-            <button className="btn btn-success btnformcreatewallet">
-              Create
-            </button>
-          </form>
-        </CardActions>
-      </Card>
-      </div>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Create a new wallet
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <form onSubmit={handleFormCreateSubmit}>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Name wallet..."
+                    onChange={handleFormCreateChange}
+                  />
+                </div>
+                <button className="btn btn-success btnformcreatewallet">
+                  Create
+                </button>
+              </form>
+            </CardActions>
+          </Card>
+        </div>
 
-      {/* CARD CHANGE WALLET*/}
-      <div className="card shadow mt-3 col-3">
+        {/* CARD CHANGE WALLET*/}
+        {/* <div className="col-3">
         <h5
           className="card-header btnchangewallet"
           style={{ cursor: "pointer" }}
@@ -279,77 +260,134 @@ function Wallet(props) {
             </div>
           ))}
         </div>
+      </div> */}
+<div className="col-3">
+        <Card sx={{ maxWidth: 345 }}>
+          <CardActionArea>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Wallet list
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            {wallets.map((wallet) => (
+              <div
+                key={wallet.id}
+                className={
+                  iWalletActive === wallet.id
+                    ? "active changewallet mb-2"
+                    : "changewallet mb-2"
+                }
+                onClick={() => handleClickChangeWallet(wallet.id)}
+              >
+                <span>{wallet.name}</span>
+              </div>
+            ))}
+          </CardActions>
+        </Card>
+        </div>
       </div>
-    </div>
-    <div>
-      {/* CARD MY WALLET*/}
-     <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Send coin
-            </Typography>
+        {/* CARD MY WALLET*/}
+        <div className="transfersection">
+          <div>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  Send coin
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <p className={wallets.length === 1 ? "txtNoti" : "andi"}>
+                Add more wallet to transfer
+              </p>
+              <form
+                className={wallets.length === 1 ? "andi" : ""}
+                onSubmit={handleFormSendCoinSubmit}
+                id="formsendcoin"
+              >
+                <div className="form-group">
+                  <label htmlFor="sendcoin">Coin Amount: </label>
+                  <input
+                    type="number"
+                    className="form-control form-control-sm"
+                    id="sendcoin"
+                    onChange={handleChangeSendCoin}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="wallet">To Wallet: </label>
+                  <select
+                    className="form-control form-control-sm"
+                    id="wallet"
+                    onChange={handleChangeIdRecieverCoin}
+                  >
+                    {wallets.map((wallet) => (
+                      <option
+                        key={wallet.id}
+                        value={wallet.id}
+                        className={wallet.id === iWalletActive ? "andi" : ""}
+                      >
+                        {wallet.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <label className="txtinvalid">Input invalid</label>
+                <button className="btn btn-block btn-success">Send</button>
+              </form>
+            </CardActions>
+          </Card>
+          </div>
+          <div>
+          <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea>
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  View statistics
+                </Typography>
+                {/* <div style={{ marginBottom: "15px" }}>
+                  <span style={{ fontWeight: "bold" }}>Coin Received: </span>
+                  <span style={{ color: "green", fontWeight: "bold" }}>
+                    {myWallet.recieved}
+                  </span>
+                </div>
+                <div>
+                  <span style={{ fontWeight: "bold" }}>Coin Transferred: </span>
+                  <span style={{ color: "red", fontWeight: "bold" }}>
+                    {myWallet.transfer}
+                  </span>
+                </div> */}
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
             <List
-              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-            >
-                <ListItem
-                  disableGutters
-                  secondaryAction={
-                    <ListItemText primary={myWallet.name} />
-                  }
+                  sx={{
+                    width: "100%",
+                    maxWidth: 360,
+                    bgcolor: "background.paper",
+                  }}
                 >
-                  <ListItemText primary={`Name`} />
-                </ListItem>
-                <ListItem
-                  disableGutters
-                  secondaryAction={
-                    <ListItemText primary={myWallet.coin} />
-                  }
-                >
-                  <ListItemText primary={`Balance`} />
-                </ListItem>
-            </List>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-        
-        </CardActions>
-      </Card>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              View statistics
-            </Typography>
-            <List
-              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-            >
-                <ListItem
-                  disableGutters
-                  secondaryAction={
-                    <ListItemText primary={myWallet.name} />
-                  }
-                >
-                  <ListItemText primary={`Name`} />
-                </ListItem>
-                <ListItem
-                  disableGutters
-                  secondaryAction={
-                    <ListItemText primary={myWallet.coin} />
-                  }
-                >
-                  <ListItemText primary={`Balance`} />
-                </ListItem>
-            </List>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-        
-        </CardActions>
-      </Card>
-    </div>
-      </>
-    
+                  <ListItem
+                    disableGutters
+                    secondaryAction={<ListItemText primary={myWallet.recieved} />}
+                  >
+                    <ListItemText primary={`Coin Received: `} />
+                  </ListItem>
+                  <ListItem
+                    disableGutters
+                    secondaryAction={<ListItemText primary={myWallet.transfer}/>}
+                  >
+                    <ListItemText primary={`Coin Transferred: `} />
+                  </ListItem>
+                </List>
+            </CardActions>
+          </Card>
+          </div>
+          </div>
+    </>
   );
 }
 
