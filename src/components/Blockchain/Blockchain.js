@@ -45,7 +45,7 @@ function BlockChain(props) {
     return (   
         <div style={{width: '100%'}}>
             {/* View Block chain */}
-            <div className="card shadow">
+            <div className="card shadow" style={{marginBottom: '50px'}}>
                 <div className="card-header-two">
                     <span className="txtFirst">BLOCKCHAIN</span>
                 </div>
