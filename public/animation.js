@@ -45,19 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     // button click view statistics
-    btnview.onclick = () =>{
-    	cardview.classList.toggle('xuathien');
-        sendcoinform.classList.remove('xuathien');
-        cardviewhistory.classList.remove('xuathien');
-        cardchangewallet.classList.remove('xuathien');
-        cardcreatewallet.classList.remove('xuathien');
-        formcreatewallet.reset();
-        document.getElementById('formsendcoin').reset();
-    }
-    iconexit.onclick = () =>{
-    	cardview.classList.remove('xuathien');
-    }
-
+   
     // // button click view history
 
     // btnviewhistory.onclick = () =>{
