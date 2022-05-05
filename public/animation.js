@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function(){
         formcreatewallet.reset();
         document.getElementById('formsendcoin').reset();
     }
-
-    // button click view statistics
     btnview.onclick = () =>{
     	cardview.classList.toggle('xuathien');
         sendcoinform.classList.remove('xuathien');
@@ -57,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function(){
     iconexit.onclick = () =>{
     	cardview.classList.remove('xuathien');
     }
-
+    // button click view statistics
+   
     // // button click view history
 
     // btnviewhistory.onclick = () =>{

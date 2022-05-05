@@ -35,12 +35,12 @@ function App() {
 
   // Block state
   const [block, setBlock] = useState([
-    { id: 0, data: 'First block created by system', prevHash: '0', hash: '0019123a23dd04e37bd41cb421c76ef6760477777c0034a16f329a7bf29468df', name: 'GENESIS BLOCK' }
+    { id: 0, data: 'Block genesised by system', prevHash: '0', hash: '0019123a23dd04e37bd41cb421c76ef6760477777c0034a16f329a7bf29468df', name: 'GENESIS BLOCK' }
   ]);
 
   // Wallets state
   const [wallets, setWallets] = useState([
-    { id: 0, name: 'Tai', coin: 100, transfer: 0, recieved: 100}
+    { id: 0, name: 'Tai', coin: 10, transfer: 0, recieved: 10}
   ])
   
   // Index has active wallet state
@@ -130,7 +130,7 @@ function App() {
         data: newData,
         prevHash: iPrevHash,
         hash: hash(newId, iPrevHash, difficulty),
-        name: "BLOCK #" + newId,
+        name: "BLOCK NUMBER" + newId,
       }
       newListBlock.push(newBlock);
       setBlock(newListBlock);
@@ -208,7 +208,7 @@ function App() {
           <div>
             <label>{miningReward}</label>
           </div> */}
-          <div className="row">
+          <div className="row" style={{marginBottom: '50px'}}>
             <Wallet 
               myWallet={wallets[indexWalletActive]} 
               wallets={wallets}
