@@ -44,7 +44,6 @@ function BlockChain(props) {
 
     return (   
         <div style={{width: '100%'}}>
-            {/* View Block chain */}
             <div className="card shadow" style={{marginBottom: '50px'}}>
                 <div className="card-header-two">
                     <span className="txtFirst">BLOCKCHAIN</span>
@@ -54,8 +53,6 @@ function BlockChain(props) {
                     {showBlockFromEnd(blocks)}
                 </div>
             </div>
-
-            {/* View History transfer */}
             <div className="card shadow">
                 <div className="card-header-two">
                     <span className="txtFirst">HISTORY</span>
